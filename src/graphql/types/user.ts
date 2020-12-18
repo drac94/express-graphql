@@ -1,10 +1,10 @@
-const {
+import {
   GraphQLInt,
   GraphQLObjectType,
   GraphQLInputObjectType,
   GraphQLString,
   GraphQLNonNull,
-} = require('graphql');
+} from 'graphql';
 
 const userType = new GraphQLObjectType({
   name: 'UserType',
@@ -27,4 +27,4 @@ const userInput = new GraphQLInputObjectType({
   },
 });
 
-module.exports = { userType, userInput };
+export { userType, userInput };

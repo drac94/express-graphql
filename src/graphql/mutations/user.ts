@@ -1,5 +1,5 @@
-const { GraphQLObjectType, GraphQLNonNull } = require('graphql');
-const { userType, userInput } = require('../types/user');
+import { GraphQLObjectType, GraphQLNonNull } from 'graphql';
+import { userType, userInput } from '../types/user';
 
 const userMutation = new GraphQLObjectType({
   name: 'UserMutation',
@@ -15,4 +15,4 @@ const userMutation = new GraphQLObjectType({
   },
 });
 
-module.exports = userMutation;
+export default userMutation;

@@ -1,7 +1,7 @@
-const {
+import {
   GraphQLInt, GraphQLObjectType, GraphQLNonNull, GraphQLList,
-} = require('graphql');
-const { userType } = require('../types/user');
+} from 'graphql';
+import { userType } from '../types/user';
 
 const userQuery = new GraphQLObjectType({
   name: 'UserQuery',
@@ -20,4 +20,4 @@ const userQuery = new GraphQLObjectType({
   },
 });
 
-module.exports = userQuery;
+export default userQuery;
