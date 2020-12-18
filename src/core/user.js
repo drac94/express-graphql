@@ -1,34 +1,29 @@
-class UserService {
-  users = [
-    {
-      id: 1,
-      name: 'User 1',
-    },
-    {
-      id: 2,
-      name: 'User 2',
-    },
-    {
-      id: 3,
-      name: 'User 3',
-    },
-    {
-      id: 4,
-      name: 'User 4',
-    },
-  ];
-  // TODO connect to a database
-  get(id) {
-    return this.users.find((user) => user.id === id);
-  }
+// TODO connect to a database
+const users = [
+  {
+    id: 1,
+    name: 'User 1',
+  },
+  {
+    id: 2,
+    name: 'User 2',
+  },
+  {
+    id: 3,
+    name: 'User 3',
+  },
+  {
+    id: 4,
+    name: 'User 4',
+  },
+];
 
-  get_all() {
-    return this.users;
-  }
+const get = (id) => users.find((user) => user.id === id);
 
-  create(args) {
-    console.log(args.userData.name);
-  }
-}
+const getAll = () => users;
 
-module.exports = UserService;
+const create = (args) => {
+  console.log(args.userData.name);
+};
+
+module.exports = { get, getAll, create };

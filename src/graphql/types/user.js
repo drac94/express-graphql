@@ -10,10 +10,10 @@ const userType = new GraphQLObjectType({
   name: 'UserType',
   fields: {
     id: {
-      type: GraphQLInt,
+      type: new GraphQLNonNull(GraphQLInt),
     },
     name: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
     },
   },
 });
