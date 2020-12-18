@@ -1,7 +1,7 @@
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
-const schema = require('./graphql/schema');
 const expressPlayground = require('graphql-playground-middleware-express').default;
+const schema = require('./graphql/schema');
 const resolvers = require('./graphql/resolvers');
 
 const context = async (req) => {
@@ -17,7 +17,7 @@ app.use(
     schema,
     rootValue: resolvers,
     context: () => context(req),
-  }))
+  })),
 );
 app.get('/playground', expressPlayground({ endpoint: '/graphql' }));
 app.listen(4000);

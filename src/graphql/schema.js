@@ -1,4 +1,4 @@
-const { buildSchema, GraphQLSchema, GraphQLObjectType } = require('graphql');
+const { buildSchema } = require('graphql');
 
 const types = require('./types');
 const userQuery = require('./queries/user');
@@ -8,9 +8,9 @@ const schema = buildSchema(`
   ${userQuery} ${userMutation} ${types}
 `);
 
-//const queries = require('./queries');
-//const mutations = require('./mutations');
-/*const schema = buildSchema(`
+// const queries = require('./queries');
+// const mutations = require('./mutations');
+/* const schema = buildSchema(`
   type Query {
     user(id: Int!): User
   }
@@ -20,9 +20,9 @@ const schema = buildSchema(`
     age: Int
     shark: String
   }
-`);*/
+`); */
 
-/*const schema = new GraphQLSchema({
+/* const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'queries',
     fields: queries,
@@ -31,6 +31,6 @@ const schema = buildSchema(`
     name: 'mutations',
     fields: mutations,
   }),
-});*/
+}); */
 
 module.exports = schema;

@@ -7,7 +7,7 @@ const client = jwksClient({
 });
 
 function getKey(header, callback) {
-  client.getSigningKey(header.kid, function (error, key) {
+  client.getSigningKey(header.kid, (error, key) => {
     const signingKey = key.publicKey || key.rsaPublicKey;
     callback(null, signingKey);
   });
@@ -17,7 +17,7 @@ async function isTokenValid(token) {
   if (token) {
     const bearerToken = token.split(' ');
 
-    const result = new Promise((resolve, reject) => {
+    const result = new Promise((resolve) => {
       jwt.verify(
         bearerToken[1],
         getKey,
@@ -33,7 +33,7 @@ async function isTokenValid(token) {
           if (decoded) {
             resolve({ decoded });
           }
-        }
+        },
       );
     });
 
