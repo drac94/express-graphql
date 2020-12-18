@@ -1,16 +1,30 @@
-const user = `
-  type User {
-    id: Int
-    name: String
-    email: String
-    mobile: String
-    role: String
-    isActive: String
-  }`;
+const {
+  GraphQLInt,
+  GraphQLObjectType,
+  GraphQLInputObjectType,
+  GraphQLString,
+  GraphQLNonNull,
+} = require('graphql');
 
-const userInput = `
-input userInput {
-    name: String!
-}`;
+const userType = new GraphQLObjectType({
+  name: 'UserType',
+  fields: {
+    id: {
+      type: GraphQLInt,
+    },
+    name: {
+      type: GraphQLString,
+    },
+  },
+});
 
-module.exports = `${user} ${userInput}`;
+const userInput = new GraphQLInputObjectType({
+  name: 'UserInput',
+  fields: {
+    name: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+  },
+});
+
+module.exports = { userType, userInput };
